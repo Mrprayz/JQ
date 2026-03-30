@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Install packages
         run: |
           sudo apt-get update
@@ -32,7 +32,7 @@ jobs:
           git diff --exit-code
       - name: Upload Test Logs
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: test-logs-oniguruma-installed
           retention-days: 7
@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Install packages
         run: |
           sudo apt-get update
@@ -64,7 +64,7 @@ jobs:
           git diff --exit-code
       - name: Upload Test Logs
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: test-logs-oniguruma-disabled
           retention-days: 7
